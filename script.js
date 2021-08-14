@@ -1,67 +1,44 @@
 'use strict';
-/* 1.1 */
 
-function Product(name, price) {
-    this.name = name;
-    this.price = price;
-}
-Product.prototype.make25PercentDiscount = function () {
-    this.price = this.price - (this.price * 0.75);
+
+/* 1-1 */
+
+const products = {
+  one: 'один',
+  two: 'два',
+  three: 'три',
 };
 
-const my_product = new Product('Шкаф', 4320);
-my_product.make25PercentDiscount();
-console.log(my_product);
-
-/* 1.1 */
-
-class Product2 {
-    constructor(name, price) {
-        this.name = name;
-        this.price = price;
-    }
-    make25PercentDiscount() {
-        this.price = this.price - (this.price * 0.75);
-    }
+for (let prop in products) {
+  console.log(prop);
+  console.log(products[prop]);
 }
 
-const my_product2 = new Product2('Шкаф', 4320);
-my_product2.make25PercentDiscount();
-console.log(my_product2);
+/* 1-2 */
 
-/* */
+let p = document.querySelector('p');
+p.innerHTML = '';
 
-class Post {
-    constructor(author, text, date) {
-        this.author = author;
-        this.text = text;
-        this.date = date;
-    }
 
-    edit(text) {
-        this.text = text;
-    }
+/* 1-3 */
+
+let totalString = '';
+
+for (let i = 1; i <= 3; i++) {
+  totalString += `слово{i}`;
 }
 
-const my_post = new Post('zara', 'zara1', new Date());
-console.log(my_post);
-my_post.edit('text');
-console.log(my_post);
+/* 2-2 */
 
-
-class AttachedPost extends Post {
-    constructor(author, text, date) {
-        super(author, text, date);
-        this.highlighted = false;
-    }
-
-    makeTextHighlighted() {
-        this.highlighted = true;
-    }
+for (let i = 0; i < 2; i++) {
+  let markup = `<img src="img/background-${i}.jpg" alt="${i}">`;
+  document.body.insertAdjacentHTML('afterbegin', markup);
 }
 
-const attached1 = new AttachedPost('zara2', 'zara2', new Date());
-console.log(attached1);
-attached1.makeTextHighlighted();
-attached1.edit('texttext');
-console.log(attached1);
+/* 2-3 */
+
+let my_input = document.querySelector('input');
+let my_div = document.querySelector('div');
+my_input.addEventListener('input', function(event) {
+  my_div.style.fontSize = event.target.value + 'px';
+})
